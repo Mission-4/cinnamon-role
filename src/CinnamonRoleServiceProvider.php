@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Mission4\CinnamonRole;
 
 use Illuminate\Support\ServiceProvider;
 
