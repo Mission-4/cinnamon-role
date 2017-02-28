@@ -13,7 +13,11 @@ class CinnamonRoleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
+
+        $this->publishes([
+            __DIR__.'/js/components' => base_path('resources/assets/js/vendor/cinnamon-role/components'),
+        ]);
     }
 
     /**
