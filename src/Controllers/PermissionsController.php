@@ -11,7 +11,7 @@ class PermissionsController {
 		$data = $data->map(function($permission){
 			return [
 				"id" => $permission->id,
-				"type" => "permission",
+				"type" => "permissions",
 				"attributes" => $permission->attributes
 			];
 		});
@@ -19,5 +19,23 @@ class PermissionsController {
 		return response()->json([
 			'data' => $data
 		], 200);
+	}
+
+	public function store()
+	{
+		$permission = new Permission();
+		$permission->name = request('data')['attributes']['name'];
+		$permission->slug = request('data')['attributes']['slug'];
+		$permission->save();
+
+		$data = [
+			"id" => $permission->id,
+			"type" => "permissions",
+			"attributes" => $permission->attributes
+		];
+
+		return response()->json([
+			'data' => $data
+		], 201);
 	}
 }

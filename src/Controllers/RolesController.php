@@ -11,7 +11,7 @@ class RolesController {
 		$data = $data->map(function($role){
 			return [
 				"id" => $role->id,
-				"type" => "role",
+				"type" => "roles",
 				"attributes" => $role->attributes
 			];
 		});
