@@ -13,6 +13,9 @@ class CinnamonRoleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        $this->loadRoutesFrom(__DIR__.'/routes/routes.php');
+
         $this->loadMigrationsFrom(__DIR__.'/migrations');
 
         $this->publishes([
@@ -27,6 +30,6 @@ class CinnamonRoleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->make('Mission4\CinnamonRole\Controllers\PermissionsController');
     }
 }
