@@ -9,33 +9,20 @@ class RolesController {
 	{
 		$data = Role::all();
 		$data = $data->map(function($role){
-			return [
-				"id" => $role->id,
-				"type" => "roles",
-				"attributes" => $role->attributes
-			];
+			return $role->data;
 		});
 
 		return response()->json([
 			'data' => $data
 		], 200);
 	}
+	
 	public function show($id)
 	{
 		$role = Role::findOrFail($id);
-		$data = [
-			"id" => $role->id,
-			"type" => "roles",
-			"attributes" => $role->attributes,
-			"relationships" => [
-				"permissions" => [
-					
-				] 
-			]
-		];
 
 		return response()->json([
-			'data' => $data
+			'data' => $role->data
 		], 200);
 	}
 
@@ -46,34 +33,36 @@ class RolesController {
 		$role->slug = request('data')['attributes']['slug'];
 		$role->save();
 
-		$data = [
-			"id" => $role->id,
-			"type" => "roles",
-			"attributes" => $role->attributes
-		];
-
 		return response()->json([
-			'data' => $data
+			'data' => $role->data
 		], 201);
 	}
 
 	public function update($id)
 	{
 		$role = Role::findOrFail(request('data')['id']);
+
 		$requestData = request('data');
-		collect($requestData['attributes'])->each(function($item, $key) use($role){
+		$relationships = $requestData['relationships'] ?? [];
+		$permissions = $relationships['permissions'] ?? [];
+		$permissionsData = $permissions['data'] ?? [];
+
+		$attributes = $requestData['attributes'] ?? [];
+		collect($attributes)->each(function($item, $key) use($role){
 			$role[$key] = $item;
 		});
+
+		if(collect($permissions)->count()){
+			$role->permissions()->detach();
+			collect(collect($permissionsData))->each(function($permission) use ($role){
+				$role->permissions()->attach($permission['id']);
+			});
+		}
+
 		$role->save();
 
-		$data = [
-			"id" => $role->id,
-			"type" => "roles",
-			"attributes" => $role->attributes
-		];
-
 		return response()->json([
-			'data' => $data
+			'data' => $role->data
 		], 200);
 	}
 

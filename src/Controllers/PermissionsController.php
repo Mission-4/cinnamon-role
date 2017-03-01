@@ -9,11 +9,7 @@ class PermissionsController {
 	{
 		$data = Permission::all();
 		$data = $data->map(function($permission){
-			return [
-				"id" => $permission->id,
-				"type" => "permissions",
-				"attributes" => $permission->attributes
-			];
+			return $permission->data;
 		});
 
 		return response()->json([
@@ -24,11 +20,7 @@ class PermissionsController {
 	public function show($id)
 	{
 		$permission = Permission::findOrFail($id);
-		$data = [
-			"id" => $permission->id,
-			"type" => "permissions",
-			"attributes" => $permission->attributes
-		];
+		$data = $permission->data;
 
 		return response()->json([
 			'data' => $data
@@ -42,11 +34,7 @@ class PermissionsController {
 		$permission->slug = request('data')['attributes']['slug'];
 		$permission->save();
 
-		$data = [
-			"id" => $permission->id,
-			"type" => "permissions",
-			"attributes" => $permission->attributes
-		];
+		$data = $permission->data;
 
 		return response()->json([
 			'data' => $data
@@ -62,11 +50,7 @@ class PermissionsController {
 		});
 		$permission->save();
 
-		$data = [
-			"id" => $permission->id,
-			"type" => "permissions",
-			"attributes" => $permission->attributes
-		];
+		$data = $permission->data;
 
 		return response()->json([
 			'data' => $data

@@ -10,4 +10,12 @@ class Model extends LaravelModel
     {
         return collect($this->attributes)->except('id');
     }
+
+    public function getDataAttribute()
+    {
+    	return [
+			"id" => $this->id,
+			"attributes" => $this->attributes,
+		];
+    }
 }

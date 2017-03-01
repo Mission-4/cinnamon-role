@@ -14,5 +14,4 @@ Route::group(['prefix' => 'api/cinnamonrole'], function(){
 	Route::post('roles', 'Mission4\CinnamonRole\Controllers\RolesController@store');
 	Route::patch('roles/{role}', 'Mission4\CinnamonRole\Controllers\RolesController@update');
 	Route::delete('roles/{role}', 'Mission4\CinnamonRole\Controllers\RolesController@destroy');
-
 });
