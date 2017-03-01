@@ -27,6 +27,15 @@ class RolesController {
 		$role->slug = request('data')['attributes']['slug'];
 		$role->save();
 
+		// Set the permissions
+		$permissions = request('data')['relationships']['permissions'] ?? [];
+		if(collect($permissions)->count()){
+			$role->permissions()->detach();
+			collect(collect($permissions['data'] ?? []))->each(function($permission) use ($role){
+				$role->permissions()->attach($permission['id']);
+			});
+		}
+
 		return response()->json([
 			'data' => $role->data
 		], 201);
@@ -38,9 +47,6 @@ class RolesController {
 		$role = Role::findOrFail(request('data')['id']);
 		$requestData = request('data');
 		$attributes = $requestData['attributes'] ?? [];
-		$relationships = $requestData['relationships'] ?? [];
-		$permissions = $relationships['permissions'] ?? [];
-		$permissionsData = $permissions['data'] ?? [];
 
 		// Set the attributes
 		collect($attributes)->each(function($item, $key) use($role){
@@ -48,9 +54,10 @@ class RolesController {
 		});
 
 		// Set the permissions
+		$permissions = request('data')['relationships']['permissions'] ?? [];
 		if(collect($permissions)->count()){
 			$role->permissions()->detach();
-			collect(collect($permissionsData))->each(function($permission) use ($role){
+			collect(collect($permissions['data'] ?? []))->each(function($permission) use ($role){
 				$role->permissions()->attach($permission['id']);
 			});
 		}
