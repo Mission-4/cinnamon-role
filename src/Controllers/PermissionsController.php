@@ -34,6 +34,15 @@ class PermissionsController {
 		$permission->slug = request('data')['attributes']['slug'];
 		$permission->save();
 
+		// Set the roles
+		$roles = request('data')['relationships']['roles'] ?? [];
+		if(collect($roles)->count()){
+			$permission->roles()->detach();
+			collect(collect($roles['data'] ?? []))->each(function($role) use ($permission){
+				$permission->roles()->attach($role['id']);
+			});
+		}
+
 		$data = $permission->data;
 
 		return response()->json([
