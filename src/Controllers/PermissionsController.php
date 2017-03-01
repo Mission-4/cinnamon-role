@@ -45,9 +45,19 @@ class PermissionsController {
 	{
 		$permission = Permission::findOrFail(request('data')['id']);
 		$requestData = request('data');
-		collect($requestData['attributes'])->each(function($item, $key) use($permission){
+		collect($requestData['attributes'] ?? [])->each(function($item, $key) use($permission){
 			$permission[$key] = $item;
 		});
+
+		$roles = request('data')['relationships']['roles'] ?? [];
+		// Set the roles
+		if(collect($roles)->count()){
+			$permission->roles()->detach();
+			collect(collect($roles['data'] ?? []))->each(function($role) use ($permission){
+				$permission->roles()->attach($role['id']);
+			});
+		}
+
 		$permission->save();
 
 		$data = $permission->data;
