@@ -10,4 +10,9 @@ Route::group(['prefix' => 'api/cinnamonrole'], function(){
 
 	// Roles
 	Route::get('roles', 'Mission4\CinnamonRole\Controllers\RolesController@index');
+	Route::get('roles/{role}', 'Mission4\CinnamonRole\Controllers\RolesController@show');
+	Route::post('roles', 'Mission4\CinnamonRole\Controllers\RolesController@store');
+	Route::patch('roles/{role}', 'Mission4\CinnamonRole\Controllers\RolesController@update');
+	Route::delete('roles/{role}', 'Mission4\CinnamonRole\Controllers\RolesController@destroy');
+
 });
