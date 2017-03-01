@@ -49,8 +49,8 @@ class PermissionsController {
 			$permission[$key] = $item;
 		});
 
-		$roles = request('data')['relationships']['roles'] ?? [];
 		// Set the roles
+		$roles = request('data')['relationships']['roles'] ?? [];
 		if(collect($roles)->count()){
 			$permission->roles()->detach();
 			collect(collect($roles['data'] ?? []))->each(function($role) use ($permission){
