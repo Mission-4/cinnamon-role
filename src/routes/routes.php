@@ -16,5 +16,6 @@ Route::group(['prefix' => 'api/cinnamonrole'], function(){
 	Route::delete('roles/{role}', 'Mission4\CinnamonRole\Controllers\RolesController@destroy');
 
 	// Users
+	Route::get('/users', "Mission4\CinnamonRole\Controllers\UsersController@index");
 	Route::patch('/users/{user}', "Mission4\CinnamonRole\Controllers\UsersController@update");
 });

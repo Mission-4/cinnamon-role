@@ -5,6 +5,18 @@ namespace Mission4\CinnamonRole\Controllers;
 use App\User;
 
 class UsersController {
+	public function index()
+	{
+		$data = User::all();
+		$data = $data->map(function($user){
+			return $user->data;
+		});
+
+		return response()->json([
+			'data' => $data
+		], 200);
+	}
+
 	public function update($id)
 	{
 		// Get the Initial Data

@@ -6,7 +6,7 @@ Cinnamon Role is a simple Role management system built for Laravel 5 with a back
 ## Feature List:
 - [x] Permissions List
 - [x] Roles list
-- [ ] Users list
+- [x] Users list
 - [x] Add Permissions and Roles
 - [x] Connect Roles to Permissions
 - [x] Connect Users to Roles
