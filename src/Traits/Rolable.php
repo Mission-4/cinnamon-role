@@ -22,4 +22,10 @@ trait Rolable {
 			]
 		];
     }
+
+    public function hasAbility($abilityName)
+    {
+        $permissions = $this->role->permissions->pluck('slug');
+        return $permissions->contains($abilityName);
+    }
 }
