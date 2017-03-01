@@ -1,6 +1,6 @@
 # Cinnamon Role - Easy Role management for Laravel 5
 
-Cinnamon Role is a simple Role management system build for Laravel 5 with an Json Api for easy implementation.
+Cinnamon Role is a simple Role management system built for Laravel 5 with a backend Json Api for easy implementation.
 
 
 ## Feature List:
