@@ -72,4 +72,11 @@ class PermissionsController {
 			'data' => $data
 		], 200);
 	}
+
+	public function destroy($id)
+	{
+		Permission::find($id)->delete();
+
+		return response()->json(null, 204);
+	}
 }
