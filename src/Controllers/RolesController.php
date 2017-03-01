@@ -26,7 +26,12 @@ class RolesController {
 		$data = [
 			"id" => $role->id,
 			"type" => "roles",
-			"attributes" => $role->attributes
+			"attributes" => $role->attributes,
+			"relationships" => [
+				"permissions" => [
+					
+				] 
+			]
 		];
 
 		return response()->json([
