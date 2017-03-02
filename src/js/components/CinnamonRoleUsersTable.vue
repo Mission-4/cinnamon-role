@@ -92,10 +92,7 @@
             },
             saveUser(){
                 CinnamonRole.updateUserRole(this.editForm.userId, this.editForm.role)
-                    .then(r => {
-                        this.users = r;
-                        $("#modal-edit-user").modal('hide');
-                    });
+                $("#modal-edit-user").modal('hide');
             }
         },
         
@@ -113,6 +110,7 @@
                 this.editForm.userId = null;
             });
 
+            CinnamonRole.eventBus.$on('updated-users', users => this.users = users);
             CinnamonRole.eventBus.$on('updated-roles', roles => this.roles = roles);
         }
     }

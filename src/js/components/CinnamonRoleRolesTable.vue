@@ -189,7 +189,7 @@
                 return permissions.find(per => per.id == permission.id);
             },
             saveRole(){
-                CinnamonRole.updateRolePermissions(this.activeRole, this.activePermissions, this.activeRole.attributes);
+                CinnamonRole.updateRolePermissions(this.activeRole.id, this.activePermissions, this.activeRole.attributes);
                 $('#modal-edit-role').modal('hide');
             },
             createRole(){
@@ -197,7 +197,7 @@
                 $('#modal-create-role').modal('hide');
             },
             deleteRole(role){
-                CinnamonRole.deleteRole(roleId);
+                CinnamonRole.deleteRole(role.id);
             }
         },
         mounted() {
