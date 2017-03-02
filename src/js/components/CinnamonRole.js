@@ -81,20 +81,17 @@ export default {
 				.catch(err => console.error(err))
 		});
 	},
-	deleteRole(role){
-		return new Promise((resolve, reject) => {
-        	axios.delete('/api/cinnamonrole/roles/' + role.id)
-            	.then(r => {
-            		this.roles = _.without(this.roles, role);
+	deleteRole(roleId){
+    	axios.delete('/api/cinnamonrole/roles/' + roleId)
+        	.then(r => {
+        		let theRole = this.roles.find(r => r.id == roleId);
+        		this.roles = _.without(this.roles, theRole);
 
-            		this.updatedRoles();
-
-            		resolve(this.roles);
-            	})
-            	.catch(err => console.error(err))
-        });
+        		this.updatedRoles();
+        	})
+        	.catch(err => console.error(err))
 	},
-	createRoleWithPermissions(role, permissions, attributes){
+	createRoleWithPermissions(permissions, attributes){
 		permissions = permissions.map(permission => {
 			return {
 				id: permission,
@@ -114,20 +111,15 @@ export default {
 			}
 		};
 
-		return new Promise((resolve, reject) => {
-        	axios.post('/api/cinnamonrole/roles', payload)
-            	.then(r => {
-            		let newRole = r.data.data;
-            		this.roles.push(r.data.data);
-            		
-            		this.updatedRoles();
-
-            		resolve(this.roles);
-            	})
-            	.catch(err => console.error(err))
-        });
+    	axios.post('/api/cinnamonrole/roles', payload)
+        	.then(r => {
+        		let newRole = r.data.data;
+        		this.roles.push(r.data.data);
+        		this.updatedRoles();
+        	})
+        	.catch(err => console.error(err))
 	},
-	updateRolePermissions(role, permissions, attributes){
+	updateRolePermissions(roleId, permissions, attributes){
 		permissions = permissions.map(permission => {
 			return {
 				id: permission,
@@ -137,7 +129,7 @@ export default {
 
 		let payload = {
 			data: {
-				"id": role.id,
+				"id": roleId,
 				"type": "roles",
 				"attributes": attributes,
 				"relationships": {
@@ -148,20 +140,15 @@ export default {
 			}
 		};
 
-		return new Promise((resolve, reject) => {
-        	axios.patch('/api/cinnamonrole/roles/' + role.id, payload)
-            	.then(r => {
-            		let updatedRole = this.roles.findIndex(role => {
-            			return role.id == r.data.data.id;
-            		});
-            		this.roles[updatedRole] = r.data.data;
-            		
-            		this.updatedRoles();
-
-            		resolve(this.roles);
-            	})
-            	.catch(err => console.error(err))
-        });
+    	axios.patch('/api/cinnamonrole/roles/' + roleId, payload)
+        	.then(r => {
+        		let updatedRole = this.roles.findIndex(role => {
+        			return role.id == r.data.data.id;
+        		});
+        		this.roles[updatedRole] = r.data.data;
+        		this.updatedRoles();
+        	})
+        	.catch(err => console.error(err))
 	},
 	getUsers(){
 		return new Promise((resolve, reject) => {
@@ -191,19 +178,14 @@ export default {
             }
         };
 
-        return new Promise((resolve, reject) => {
-        	axios.patch('/api/cinnamonrole/users/' + userId, {data: payload})
-            	.then(r => {
-            		let updatedUser = this.users.findIndex(user => {
-            			return user.id == r.data.data.id;
-            		});
-            		this.users[updatedUser] = r.data.data;
-            		
-            		this.updatedUsers();
-
-            		resolve(this.users);
-            	})
-            	.catch(err => console.error(err))
-        });
+    	axios.patch('/api/cinnamonrole/users/' + userId, {data: payload})
+        	.then(r => {
+        		let updatedUser = this.users.findIndex(user => {
+        			return user.id == r.data.data.id;
+        		});
+        		this.users[updatedUser] = r.data.data;
+        		this.updatedUsers();
+        	})
+        	.catch(err => console.error(err))
 	}
 }

@@ -189,24 +189,15 @@
                 return permissions.find(per => per.id == permission.id);
             },
             saveRole(){
-                CinnamonRole.updateRolePermissions(this.activeRole, this.activePermissions, this.activeRole.attributes)
-                    .then(r => {
-                        this.roles = r;
-                        $('#modal-edit-role').modal('hide');
-                    });
+                CinnamonRole.updateRolePermissions(this.activeRole, this.activePermissions, this.activeRole.attributes);
+                $('#modal-edit-role').modal('hide');
             },
             createRole(){
-                CinnamonRole.createRoleWithPermissions(this.activeRole, this.activePermissions, this.activeRole.attributes)
-                    .then(r => {
-                        this.roles = r;
-                        $('#modal-create-role').modal('hide');
-                    });
+                CinnamonRole.createRoleWithPermissions(this.activePermissions, this.activeRole.attributes);
+                $('#modal-create-role').modal('hide');
             },
             deleteRole(role){
-                CinnamonRole.deleteRole(role)
-                    .then(r => {
-                        this.roles = r;
-                    });
+                CinnamonRole.deleteRole(roleId);
             }
         },
         mounted() {
@@ -227,6 +218,7 @@
                 this.activeRole = null;
             });
 
+            CinnamonRole.eventBus.$on('updated-roles', r => this.roles = r);
             CinnamonRole.eventBus.$on('updated-permissions', r => this.permissions = r);
         }
     }
