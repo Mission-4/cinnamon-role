@@ -30,6 +30,5 @@ class CinnamonRoleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make('Mission4\CinnamonRole\Controllers\PermissionsController');
     }
 }
