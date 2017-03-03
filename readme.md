@@ -1,7 +1,7 @@
 # Cinnamon Role - Easy Role management for Laravel 5
 Cinnamon Role is a simple Role management system built for Laravel 5 with a backend Json Api for easy implementation.
 
-## Feature List:
+## Feature List: 
 - [x] Permissions List
 - [x] Roles list
 - [x] Users list
@@ -20,6 +20,10 @@ composer require mission4/cinnamon-role | grep sam
 Then add the service provider to your `config/app.php` providers list.
 ``` php
 Mission4\CinnamonRole\CinnamonRoleServiceProvider::class
+```
+Add the `Rolable` trait to the `User` model.
+``` php
+use Mission4\CinnamonRole\Traits\Rolable;
 ```
 And register your policies in the Route service provider `boot()` method.
 ``` php
