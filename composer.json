@@ -4,5 +4,10 @@
     "author": "Sam Podlogar",
     "license": "MIT",
     "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "Mission4\\CinnamonRole\\": "src/"
+        }
+    },
     "require": {}
 }
