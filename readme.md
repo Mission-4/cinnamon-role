@@ -53,3 +53,6 @@ Add these to your Blade file that you want to edit roles and permissions on.
 <cinnamon-role-permissions-table></cinnamon-role-permissions-table>
 <cinnamon-role-roles-table></cinnamon-role-roles-table>
 ```
+
+## Current Issues
+Migrations do not rollback due to Foreign Key Constraints
