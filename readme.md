@@ -23,7 +23,7 @@ Mission4\CinnamonRole\CinnamonRoleServiceProvider::class
 ```
 Add the `Rolable` trait to the `User` model.
 ``` php
-use Mission4\CinnamonRole\Traits\Rolable;
+use \Mission4\CinnamonRole\Traits\Rolable;
 ```
 And register your policies in the Route service provider `boot()` method.
 ``` php
