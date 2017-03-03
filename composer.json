@@ -3,5 +3,6 @@
     "description": "Laravel Role Package",
     "author": "Sam Podlogar",
     "license": "MIT",
+    "version": "1.0.0",
     "require": {}
 }
