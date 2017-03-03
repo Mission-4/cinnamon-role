@@ -1,5 +1,7 @@
 {
     "name": "mission4/cinnamon-role",
     "description": "Laravel Role Package",
+    "author": "Sam Podlogar",
+    "license": "MIT",
     "require": {}
 }
