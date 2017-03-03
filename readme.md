@@ -1,4 +1,5 @@
 # Cinnamon Role - Easy Role management for Laravel 5
+[![StyleCI](https://styleci.io/repos/83485720/shield?branch=master)](https://styleci.io/repos/83485720)
 Cinnamon Role is a simple Role management system built for Laravel 5 with a backend Json Api for easy implementation.
 
 ## Feature List: 
