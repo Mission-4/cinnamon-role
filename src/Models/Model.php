@@ -13,9 +13,9 @@ class Model extends LaravelModel
 
     public function getDataAttribute()
     {
-    	return [
-			"id" => $this->id,
-			"attributes" => $this->attributes,
-		];
+        return [
+            'id'         => $this->id,
+            'attributes' => $this->attributes,
+        ];
     }
 }
