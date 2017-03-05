@@ -9,5 +9,7 @@
             "Mission4\\CinnamonRole\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "illuminate\\support": "5.4.*"
+    }
 }
