@@ -3,7 +3,14 @@
     "description": "Laravel Role Package",
     "author": "Sam Podlogar",
     "license": "MIT",
-    "version": "1.0.2",
+    "version": "1.0.3",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Sam Podlogar",
+            "email": "phppirate@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Mission4\\CinnamonRole\\": "src/"
