@@ -17,7 +17,7 @@ Cinnamon Role is a simple Role management system built for Laravel 5 with a back
 ## Installation
 Using Composer:
 ``` bash
-composer require mission4/cinnamon-role | grep sam
+composer require mission4/cinnamon-role
 ```
 Then add the service provider to your `config/app.php` providers list.
 ``` php
