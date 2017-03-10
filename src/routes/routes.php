@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'api/cinnamonrole'], function () {
+Route::group(['prefix' => 'api/cinnamonrole', 'middleware' => config('cinnamon-role.middleware')], function () {
     // Permissions
     Route::get('permissions', 'Mission4\CinnamonRole\Controllers\PermissionsController@index');
     Route::get('permissions/{permission}', 'Mission4\CinnamonRole\Controllers\PermissionsController@show');
