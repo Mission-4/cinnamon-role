@@ -36,6 +36,7 @@ public function boot()
     $this->registerPolicies();
     // Register CinnamonRole Permissions Policies
     CinnamonRole::registerPermissions();
+    // Don't forget to import the class Mission4\CinnamonRole\CinnamonRole
 }
 ```
 
