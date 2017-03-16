@@ -18,7 +18,7 @@ trait Rolable
             'attributes'    => collect($this->attributes)->except($this->hidden),
             'relationships' => [
                 'role' => [
-                    'data' => $this->role ? collect($this->role->data)->except('relationships', 'attributes') : null,
+                    'data' => $this->role ? collect($this->role->data)->except('relationships') : null,
                 ],
             ],
         ];

@@ -31,6 +31,7 @@ use \Mission4\CinnamonRole\Traits\Rolable;
 ```
 And register your policies in the **AuthServiceProvider** `boot()` method.
 ``` php
+use \Mission4\CinnamonRole\CinnamonRole;
 public function boot()
 {
     $this->registerPolicies();
