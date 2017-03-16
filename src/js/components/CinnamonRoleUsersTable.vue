@@ -12,6 +12,7 @@
                     <tr>
                         <th>User Name</th>
                         <th>Email</th>
+                        <th>Role</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -20,6 +21,7 @@
                     <tr v-for="user in users">
                         <td style="vertical-align: middle;" v-text="user.attributes.name"></td>
                         <td style="vertical-align: middle;"><code v-text="user.attributes.email"></code></td>
+                        <td style="vertical-align: middle;"><code v-text="user.relationships.role.data.attributes.name"></code></td>
                         <td style="vertical-align: middle; text-align: right">
                             <button class="btn btn-success m-r-10" @click="editUser(user)">Edit</button>
                         </td>
