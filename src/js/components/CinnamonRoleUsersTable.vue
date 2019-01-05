@@ -1,13 +1,13 @@
 <template>
-    <div class="panel panel-default">
-        <div class="panel-heading" style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="card card-default">
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
             <span>
                 Users
             </span>
         </div>
 
-        <div class="panel-body">
-            <table class="table table-borderless m-b-none">
+        <div class="card-block">
+            <table class="table table-borderless table-striped m-b-none">
                 <thead>
                     <tr>
                         <th>User Name</th>
@@ -33,11 +33,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
                         <h4 class="modal-title">
                             Edit User
                         </h4>
+
+                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
 
                     <!-- Edit User Form -->
@@ -45,8 +45,8 @@
 
                         <div class="modal-body">
                                 <!-- Role -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Role</label>
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label text-right">Role</label>
 
                                     <div class="col-md-7">
                                         <select id="edit-client-name" class="form-control" v-model="editForm.role">

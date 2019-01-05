@@ -3,8 +3,15 @@
     "description": "Laravel Role Package",
     "author": "Sam Podlogar",
     "license": "MIT",
-    "version": "1.0.5",
+    "version": "2.0.0",
     "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mission4\\CinnamonRole\\CinnamonRoleServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "Sam Podlogar",

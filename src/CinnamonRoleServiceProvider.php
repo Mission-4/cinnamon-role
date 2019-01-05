@@ -18,7 +18,7 @@ class CinnamonRoleServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/migrations');
 
         $this->publishes([
-            __DIR__.'/js/components' => base_path('resources/assets/js/components/cinnamon-role'),
+            __DIR__.'/js/components' => base_path('resources/js/components/cinnamon-role'),
         ], 'cinnamon-role');
 
         $this->publishes([

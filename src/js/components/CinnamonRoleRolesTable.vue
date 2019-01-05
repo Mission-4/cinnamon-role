@@ -1,6 +1,6 @@
 <template>
-    <div class="panel panel-default">
-        <div class="panel-heading" style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="card card-default">
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
             <span>
                 Roles
             </span>
@@ -9,8 +9,8 @@
             </a>
         </div>
 
-        <div class="panel-body">
-            <table class="table table-borderless m-b-none">
+        <div class="card-block">
+            <table class="table table-borderless table-striped m-b-none">
                 <thead>
                     <tr>
                         <th>Role Name</th>
@@ -37,11 +37,11 @@
             <div class="modal-dialog">
                 <div class="modal-content" v-if="activeRole">
                     <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
                         <h4 class="modal-title">
                             Edit Role
                         </h4>
+
+                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
 
                     <!-- Edit User Form -->
@@ -49,8 +49,8 @@
 
                         <div class="modal-body">
                                 <!-- Name -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Name</label>
+                                <div class="form-group row">
+                                    <label class="col-md-3 text-right col-form-label">Name</label>
 
                                     <div class="col-md-7">
                                         <input type="text" class="form-control" v-model="activeRole.attributes.name">
@@ -58,8 +58,8 @@
                                 </div>
 
                                 <!-- Slug -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Slug</label>
+                                <div class="form-group row">
+                                    <label class="col-md-3 text-right col-form-label">Slug</label>
 
                                     <div class="col-md-7">
                                         <input type="text" class="form-control" v-model="activeRole.attributes.slug">
@@ -67,8 +67,8 @@
                                 </div>
 
                                 <!-- Role -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Permissions</label>
+                                <div class="form-group row">
+                                    <label class="col-md-3 text-right col-form-label">Permissions</label>
 
                                     <div class="col-md-7">
                                         <div class="checkbox" v-for="permission in permissions">
@@ -100,11 +100,11 @@
             <div class="modal-dialog">
                 <div class="modal-content" v-if="activeRole">
                     <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
                         <h4 class="modal-title">
                             Create Role
                         </h4>
+
+                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
 
                     <!-- Edit User Form -->
@@ -112,8 +112,8 @@
 
                         <div class="modal-body">
                                 <!-- Name -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Name</label>
+                                <div class="form-group row">
+                                    <label class="col-md-3 text-right col-form-label">Name</label>
 
                                     <div class="col-md-7">
                                         <input type="text" class="form-control" v-model="activeRole.attributes.name">
@@ -121,8 +121,8 @@
                                 </div>
 
                                 <!-- Slug -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Slug</label>
+                                <div class="form-group row">
+                                    <label class="col-md-3 text-right col-form-label">Slug</label>
 
                                     <div class="col-md-7">
                                         <input type="text" class="form-control" v-model="activeRole.attributes.slug">
@@ -130,8 +130,8 @@
                                 </div>
 
                                 <!-- Role -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Permissions</label>
+                                <div class="form-group row">
+                                    <label class="col-md-3 text-right col-form-label">Permissions</label>
 
                                     <div class="col-md-7">
                                         <div class="checkbox" v-for="permission in permissions">

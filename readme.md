@@ -21,10 +21,6 @@ Using Composer:
 ``` bash
 composer require mission4/cinnamon-role
 ```
-Then add the service provider to your `config/app.php` providers list.
-``` php
-Mission4\CinnamonRole\CinnamonRoleServiceProvider::class
-```
 Add the `Rolable` trait to the `User` model.
 ``` php
 use \Mission4\CinnamonRole\Traits\Rolable;
@@ -48,9 +44,9 @@ php artisan vendor:publish --tag=cinnamon-role
 ```
 And add the Vue Components to your `app.js` file and then compile your JavaScript.
 ``` javascript
-Vue.component('cinnamon-role-users-table', require('./components/cinnamon-role/cinnamonRoleUsersTable.vue'));
-Vue.component('cinnamon-role-permissions-table', require('./components/cinnamon-role/cinnamonRolePermissionsTable.vue'));
-Vue.component('cinnamon-role-roles-table', require('./components/cinnamon-role/cinnamonRoleRolesTable.vue'));
+Vue.component('cinnamon-role-users-table', require('./components/cinnamon-role/CinnamonRoleUsersTable.vue'));
+Vue.component('cinnamon-role-permissions-table', require('./components/cinnamon-role/CinnamonRolePermissionsTable.vue'));
+Vue.component('cinnamon-role-roles-table', require('./components/cinnamon-role/CinnamonRoleRolesTable.vue'));
 ```
 Add these to your Blade file that you want to edit roles and permissions on.
 ``` html
